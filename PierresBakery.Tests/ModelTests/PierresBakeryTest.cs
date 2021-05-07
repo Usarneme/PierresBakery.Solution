@@ -154,5 +154,27 @@ namespace PierresBakeryTesting
       int returnedBreadNumber = myPierresBakery.GetCurrentOrderItems()["Breads"];
       Assert.AreEqual(expectedBreadNumber, returnedBreadNumber);
     }
+
+        [TestMethod]
+    public void PierresBakery_AddPastryToOrder_OnePastryInOrder()
+    {
+      PierresBakery myPierresBakery = new PierresBakery();
+      int numberOfPastriesToAddToOrder = 1;
+      myPierresBakery.AddPastryToCurrentOrder(numberOfPastriesToAddToOrder);
+      int expectedPastryNumber = 1;
+      int returnedPastryNumber = myPierresBakery.GetCurrentOrderItems()["Pastries"];
+      Assert.AreEqual(expectedPastryNumber, returnedPastryNumber);
+    }
+
+    // [TestMethod]
+    // public void PierresBakery_AddFivePastrysToOrder_FivePastrysInOrder()
+    // {
+    //   PierresBakery myPierresBakery = new PierresBakery();
+    //   int numberOfPastrysToAddToOrder = 5;
+    //   myPierresBakery.AddPastryToCurrentOrder(numberOfPastrysToAddToOrder);
+    //   int expectedPastryNumber = 5;
+    //   int returnedPastryNumber = myPierresBakery.GetCurrentOrderItems()["Pastrys"];
+    //   Assert.AreEqual(expectedPastryNumber, returnedPastryNumber);
+    // }
   }
 }
