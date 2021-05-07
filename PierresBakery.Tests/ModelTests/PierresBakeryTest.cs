@@ -23,5 +23,42 @@ namespace PierresBakeryTesting
       int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
+
+    [TestMethod]
+    public void Bread_GetPriceOfNineLoaves_Thirty()
+    {
+      int numberOfLoaves = 9;
+      int expectedCost = 30;
+      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
+    [TestMethod]
+    public void Bread_GetPriceOfTenLoaves_ThirtyFive()
+    {
+      int numberOfLoaves = 10;
+      int expectedCost = 35;
+      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
+    [TestMethod]
+    public void Bread_GetPriceOfElevenLoaves_ThirtyFive()
+    {
+      int numberOfLoaves = 11;
+      int expectedCost = 40;
+      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
+    [TestMethod]
+    public void Bread_GetPriceOfTwelveLoaves_Forty()
+    {
+      int numberOfLoaves = 12;
+      int expectedCost = 40;
+      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
   }
 }
