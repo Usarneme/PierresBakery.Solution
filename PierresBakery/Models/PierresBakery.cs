@@ -28,6 +28,7 @@ namespace PierresBakeryNamespace
 
     public int GetCurrentOrderCost()
     {
+      UpdateCurrentOrderCost();
       return _currentOrderCost;
     }
 
