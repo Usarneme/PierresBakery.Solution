@@ -252,5 +252,17 @@ namespace PierresBakeryTesting
       int returnedCostOfOrder = myPierresBakery.GetCurrentOrderCost();
       Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
     }
+
+        [TestMethod]
+    public void PierresBakery_AddTenPastriesAndTenBreadToOrder_CostIsFiftyTwoDollars()
+    {
+      PierresBakery myPierresBakery = new PierresBakery();
+      myPierresBakery.AddPastryToCurrentOrder(10);
+      myPierresBakery.AddBreadToCurrentOrder(10);
+      int expectedCostOfOrder = 52;
+      int returnedCostOfOrder = myPierresBakery.GetCurrentOrderCost();
+      Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
+    }
+
   }
 }
