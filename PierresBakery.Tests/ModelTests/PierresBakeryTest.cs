@@ -253,7 +253,7 @@ namespace PierresBakeryTesting
       Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
     }
 
-        [TestMethod]
+    [TestMethod]
     public void PierresBakery_AddTenPastriesAndTenBreadToOrder_CostIsFiftyTwoDollars()
     {
       PierresBakery myPierresBakery = new PierresBakery();
