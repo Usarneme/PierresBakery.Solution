@@ -8,11 +8,6 @@ namespace PierresBakeryNamespace
     private Dictionary<string, int> _currentOrder;
     private int _currentOrderCost;
 
-    public Dictionary<string, int> GetCurrentOrderItems()
-    {
-      return _currentOrder;
-    }
-
     public PierresBakery()
     {
       _currentOrderCost = 0;
@@ -21,6 +16,18 @@ namespace PierresBakeryNamespace
         {"Breads", 0},
         {"Pastries", 0}
       };
+    }
+
+    public Dictionary<string, int> GetCurrentOrderItems()
+    {
+      return _currentOrder;
+    }
+
+
+    public int GetCurrentOrderCost()
+    {
+      UpdateCurrentOrderCost();
+      return _currentOrderCost;
     }
 
     public void UpdateCurrentOrderCost()
@@ -32,22 +39,11 @@ namespace PierresBakeryNamespace
       _currentOrderCost = costOfBreads + costOfPastries;
     }
 
-    public int GetCurrentOrderCost()
+    public bool AddToCurrentOrder(string menuItem, int numberOfBreads)
     {
-      UpdateCurrentOrderCost();
-      return _currentOrderCost;
-    }
-
-    public bool AddBreadToCurrentOrder(int numberOfBreads)
-    {
-      _currentOrder["Breads"] += numberOfBreads;
+      _currentOrder[menuItem] += numberOfBreads;
       return true;
     }
 
-    public bool AddPastryToCurrentOrder(int numberOfPastries)
-    {
-      _currentOrder["Pastries"] += numberOfPastries;
-      return true;
-    }
   }
 }

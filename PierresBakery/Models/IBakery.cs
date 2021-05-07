@@ -7,7 +7,5 @@ interface IBakery
 
   void UpdateCurrentOrderCost();
 
-  bool AddBreadToCurrentOrder(int numberOfBreads);
-
-  bool AddPastryToCurrentOrder(int numberOfPastries);
+  bool AddToCurrentOrder(string orderName, int numberOfBreads);
 }

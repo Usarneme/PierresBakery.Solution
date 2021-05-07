@@ -32,8 +32,8 @@ namespace ProgramNamespace
 
     public static void OrderUI()
     {
-      Console.WriteLine("\tOptions: [M]enu. [I]tems Ordered. [O]rder Cost Total.");
-      Console.Write("\tPlease make a selection. Order [B]read or [P]astry\n\t: ");
+      Console.WriteLine("\tOptions: [M]enu. [I]tems Ordered. [O]rder Cost Total. [C]heckout. [E]xit.");
+      Console.Write("\tPlease make a selection. Order [B]read. Order [P]astry\n\t: ");
       string order = Console.ReadLine();
       if (order.ToLower() == "m")
       {
@@ -43,6 +43,10 @@ namespace ProgramNamespace
       else if (order.ToLower() == "o")
       {
         // int orderCost = _pierresBakeryInstance.GetCurrentOrderCost();
+      }
+      else if (order.ToLower() == "e")
+      {
+        Console.WriteLine("Thanks for stopping by. We hope to see you again soon!");
       }
       _isOrdering = false;
     }
