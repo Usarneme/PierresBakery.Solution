@@ -63,12 +63,19 @@ namespace PierresBakeryTesting
     [TestMethod]
     public void Pastry_GetPrice_Two()
     {
-      // Arrange, Act, Assert
       int expectedCost = 2;
       int returnedCost = Pastry.GetPrice();
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
+    [TestMethod]
+    public void Pastry_GetPriceOfTwo_Four()
+    {
+      int numberOfPastries = 2;
+      int expectedCost = 4;
+      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
 
   }
 }
