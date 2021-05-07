@@ -1,7 +1,9 @@
 public class Bread
 {
+
+  private static int _singleLoafBreadPrice = 5;
   public static int GetPrice()
   {
-    return 0;
+    return _singleLoafBreadPrice;
   }
 }
