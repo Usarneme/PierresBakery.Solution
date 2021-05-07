@@ -5,7 +5,7 @@ interface IBakery
 
   int GetCurrentOrderCost();
 
-  bool AddBreadToCurrentOrder(Bread bread);
+  bool AddBreadToCurrentOrder(int numberOfBreads);
 
-  bool AddPastryToCurrentOrder(Pastry pastry);
+  bool AddPastryToCurrentOrder(int numberOfPastries);
 }

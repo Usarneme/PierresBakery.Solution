@@ -137,7 +137,8 @@ namespace PierresBakeryTesting
     public void PierresBakery_AddBreadToOrder_OneBreadInOrder()
     {
       PierresBakery myPierresBakery = new PierresBakery();
-      myPierresBakery.AddBreadToCurrentOrder(new Bread());
+      int numberOfBreadsToAddToOrder = 1;
+      myPierresBakery.AddBreadToCurrentOrder(numberOfBreadsToAddToOrder);
       int expectedBreadNumber = 1;
       int returnedBreadNumber = myPierresBakery.GetCurrentOrderItems()["Breads"];
       Assert.AreEqual(expectedBreadNumber, returnedBreadNumber);

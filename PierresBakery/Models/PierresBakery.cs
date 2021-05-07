@@ -22,13 +22,13 @@ namespace PierresBakeryNamespace
       return _currentOrderCost;
     }
 
-    public bool AddBreadToCurrentOrder(Bread bread)
+    public bool AddBreadToCurrentOrder(int numberOfBreads)
     {
-      _currentOrder["Breads"] += 1;
+      _currentOrder["Breads"] += numberOfBreads;
       return true;
     }
 
-    public bool AddPastryToCurrentOrder(Pastry bread)
+    public bool AddPastryToCurrentOrder(int numberOfPastries)
     {
       return true;
     }
