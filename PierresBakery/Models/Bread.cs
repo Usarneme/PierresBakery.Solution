@@ -2,9 +2,9 @@ public class Bread
 {
 
   private static int _singleLoafBreadPrice = 5;
-  public static int GetPrice()
+  public static int Price
   {
-    return _singleLoafBreadPrice;
+    get { return _singleLoafBreadPrice; }
   }
 
   public static int GetPriceOfMultiple(int numberOfLoaves)

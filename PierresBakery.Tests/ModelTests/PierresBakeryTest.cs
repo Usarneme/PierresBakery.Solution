@@ -11,7 +11,7 @@ namespace PierresBakeryTesting
     {
       // Arrange, Act, Assert
       int expectedCost = 5;
-      int returnedCost = Bread.GetPrice();
+      int returnedCost = Bread.Price;
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -64,7 +64,7 @@ namespace PierresBakeryTesting
     public void Pastry_GetPrice_Two()
     {
       int expectedCost = 2;
-      int returnedCost = Pastry.GetPrice();
+      int returnedCost = Pastry.Price;
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
