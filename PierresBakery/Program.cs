@@ -97,7 +97,7 @@ namespace ProgramNamespace
       }
       else if (command.ToLower() == "e")
       {
-        Console.WriteLine("\n\n\tThanks for stopping by. We hope to see you again soon!\n\n");
+        Console.WriteLine("\n\n\tCancelling your order.\n\tThanks for stopping by. We hope to see you again soon!\n\n");
         _isOrdering = false;
       }
       else

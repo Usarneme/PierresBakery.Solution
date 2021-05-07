@@ -1,4 +1,4 @@
-# C# Project
+# Pierre's Bakery
 ## By Usarneme/Tom
 
 ---
@@ -6,7 +6,8 @@
 ### Project Description
 
 
-This repo holds a bash script for creating the directory structure and boilerplate code files for a TDD-ready C#/.NET project.
+This project is a console application for Pierre's Bakery. It allows you to order bread and pastries, see your total, and checkout once you are done adding items to your order.
+
 ---
 ### Tech Stack
 1. C#
@@ -14,18 +15,25 @@ This repo holds a bash script for creating the directory structure and boilerpla
 3. MSTest
 4. Bash script (for project setup)
 ---
-### Setup Script Instructions
-1. Ensure script is executable using `chmod u+x setup.sh` NOTE: You may have to use sudo
-2. Run the script. Mac: `sh setup.sh`. Linux: `./setup.sh`
-3. Follow the prompt to enter the name of your project and hit enter.
-NOTE: Don't forget to run `dotnet restore` once you have written some actual class/test code.
+### Project Build/Run Instructions
+1. Clone this repository via `git clone https://github.com/Usarneme/PierresBakery.Solution`
+2. Enter the newly created directory via `cd PierresBakery.Solution`
+3. Enter the project directory `cd PierresBakery` and install requirements via `dotnet restore`
+3a. (Optional) If you want to run the Test Suite, enter the test directory `cd PierresBakery.Tests` and run `dotnet restore`
+4. From within the PierresBakery directory, to run the application first run `dotnet build` then `dotnet run`
 ---
 
-### C#/.NET Project Instructions
-1.
-
-
+### Requirements
+1. C# - instructions for installing can be found at https://www.geeksforgeeks.org/how-to-install-and-setup-visual-studio-for-c-sharp/
+2. .NET - instructions for installing can be found at https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers
+3. A terminal/command line application such as iTerm on Mac or CMD/GitBash on Windows
 ---
+
+### Project Demo
+You can see most of the application's functionality in the included screenshot:
+<img src="./ProjectView.png" style="max-width: 575px;" width="575px" />
+
+
 ### Known Issues:
 1. NO KNOWN ISSUES
 2. Please open a pull request if you have any issues!
