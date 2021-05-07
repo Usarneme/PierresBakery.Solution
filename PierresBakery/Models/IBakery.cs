@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 interface IBakery
 {
-  List<string> GetCurrentOrder();
+  List<string> GetCurrentOrderItems();
 
   int GetCurrentOrderCost();
+
+  bool AddToCurrentOrder(string item);
 }

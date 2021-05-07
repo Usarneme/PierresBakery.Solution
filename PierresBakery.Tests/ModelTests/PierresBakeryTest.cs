@@ -110,5 +110,13 @@ namespace PierresBakeryTesting
       PierresBakery myPierresBakery = new PierresBakery();
       Assert.AreEqual(typeof(PierresBakery), myPierresBakery.GetType());
     }
+
+    [TestMethod]
+    public void PierresBakery_NewBakeryOrderCost_Zero()
+    {
+      PierresBakery myPierresBakery = new PierresBakery();
+      int expectedOrderCost = 0;
+      Assert.AreEqual(myPierresBakery.GetCurrentOrderCost(), expectedOrderCost);
+    }
   }
 }
