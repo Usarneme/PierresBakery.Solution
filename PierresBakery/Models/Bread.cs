@@ -6,4 +6,9 @@ public class Bread
   {
     return _singleLoafBreadPrice;
   }
+
+  public static int GetPriceOfMultiple(int numberOfLoaves)
+  {
+    return 0;
+  }
 }
