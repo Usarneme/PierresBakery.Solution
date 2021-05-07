@@ -31,13 +31,13 @@ namespace ProgramNamespace
 
     public static void ShowOptions()
     {
-      Console.WriteLine("\tOptions: [M]enu. [I]tems Ordered. [O]rder Cost Total. [C]heckout. [E]xit.");
+      Console.WriteLine("\tOptions: View [M]enu. View [I]tems Ordered. View [O]rder Cost Total. Order [B]read. Order [P]astry. [C]heckout. [E]xit.");
     }
 
     public static void OrderUI()
     {
       ShowOptions();
-      Console.Write("\tPlease make a selection. Order [B]read. Order [P]astry\n\t: ");
+      Console.Write("\tPlease make a selection.\n\t: ");
       string command = Console.ReadLine();
       if (command.ToLower() == "m")
       {
@@ -88,7 +88,7 @@ namespace ProgramNamespace
       }
       else
       {
-        Console.WriteLine("\n\tI didn't understand that command. Please try again.");
+        Console.WriteLine("\n\tI didn't understand that command. Please try again.\n");
         OrderUI();
       }
     }
