@@ -24,6 +24,7 @@ namespace PierresBakeryNamespace
 
     public bool AddBreadToCurrentOrder(Bread bread)
     {
+      _currentOrder["Breads"] += 1;
       return true;
     }
 
