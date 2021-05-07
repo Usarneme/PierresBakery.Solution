@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PierresBakeryNamespace;
+using System.Collections.Generic;
 namespace PierresBakeryTesting
 {
   [TestClass]
@@ -116,7 +117,17 @@ namespace PierresBakeryTesting
     {
       PierresBakery myPierresBakery = new PierresBakery();
       int expectedOrderCost = 0;
-      Assert.AreEqual(myPierresBakery.GetCurrentOrderCost(), expectedOrderCost);
+      int returnedOrderCost = myPierresBakery.GetCurrentOrderCost();
+      Assert.AreEqual(expectedOrderCost, returnedOrderCost);
+    }
+
+    [TestMethod]
+    public void PierresBakery_NewBakeryOrderItems_EmptyList()
+    {
+      PierresBakery myPierresBakery = new PierresBakery();
+      List<string> returnedOrderListItems = myPierresBakery.GetCurrentOrderItems();
+      List<string> expectedOrderItems = new List<string>();
+      CollectionAssert.AreEqual(expectedOrderItems, returnedOrderListItems);
     }
   }
 }
