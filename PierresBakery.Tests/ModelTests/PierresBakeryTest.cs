@@ -8,11 +8,29 @@ namespace PierresBakeryTesting
   {
 
     [TestMethod]
-    public void Bread_GetPrice_Five()
+    public void Bread_GetBasePriceOfOneLoaf_Five()
     {
       // Arrange, Act, Assert
       int expectedCost = 5;
       int returnedCost = Bread.Price;
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
+    [TestMethod]
+    public void Bread_GetPriceOfZeroLoaves_Zero()
+    {
+      int numberOfLoaves = 0;
+      int expectedCost = 0;
+      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
+    [TestMethod]
+    public void Bread_GetPriceOfOneLoaf_Five()
+    {
+      int numberOfLoaves = 1;
+      int expectedCost = 5;
+      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -62,10 +80,28 @@ namespace PierresBakeryTesting
     }
 
     [TestMethod]
-    public void Pastry_GetPrice_Two()
+    public void Pastry_GetBasePriceOfOnePastry_Two()
     {
       int expectedCost = 2;
       int returnedCost = Pastry.Price;
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
+    [TestMethod]
+    public void Pastry_GetPriceOfZero_Zero()
+    {
+      int numberOfPastries = 0;
+      int expectedCost = 0;
+      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
+    [TestMethod]
+    public void Pastry_GetPriceOfOne_Two()
+    {
+      int numberOfPastries = 1;
+      int expectedCost = 2;
+      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
