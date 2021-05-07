@@ -1,12 +1,11 @@
-using System;
 using PierresBakeryNamespace;
+using System;
+using System.Collections.Generic;
 
 namespace ProgramNamespace
 {
   public class Program
   {
-
-    // private PierresBakery _pierresBakeryInstance = new PierresBakery();
     private static bool _isOrdering = true;
 
     public static void Main()
@@ -39,24 +38,62 @@ namespace ProgramNamespace
     {
       ShowOptions();
       Console.Write("\tPlease make a selection. Order [B]read. Order [P]astry\n\t: ");
-      string order = Console.ReadLine();
-      if (order.ToLower() == "m")
+      string command = Console.ReadLine();
+      if (command.ToLower() == "m")
       {
         ShowMenu();
         OrderUI();
       }
-      else if (order.ToLower() == "o")
+      else if (command.ToLower() == "i")
       {
-        // int orderCost = _pierresBakeryInstance.GetCurrentOrderCost();
+        Dictionary<string, int> itemsOrdered = PierresBakery.GetCurrentOrderItems();
+        int numberOfBreads = itemsOrdered["Breads"];
+        int numberOfPastries = itemsOrdered["Pastries"];
+        if (numberOfBreads > 0 || numberOfPastries > 0)
+        {
+          Console.WriteLine("\n\tYou have ordered:");
+          if (numberOfBreads == 1)
+          {
+            Console.Write("\t{0} loaf of bread. ");
+          }
+          else
+          {
+            Console.Write("\t{0} loaves of bread. ");
+          }
+          if (numberOfPastries == 1)
+          {
+            Console.Write("\t{0} delicious pastry. ");
+          }
+          else
+          {
+            Console.Write("\t{0} delicious pastries. ");
+          }
+        }
+        else
+        {
+          Console.WriteLine("\n\tYou haven't ordered anything yet!\n");
+        }
+        OrderUI();
       }
-      else if (order.ToLower() == "e")
+      else if (command.ToLower() == "o")
       {
-        Console.WriteLine("Thanks for stopping by. We hope to see you again soon!");
+        int orderCost = PierresBakery.GetCurrentOrderCost();
+        Console.WriteLine("\n\tYour total comes to ${0}.00.\n", orderCost);
+        OrderUI();
       }
-      _isOrdering = false;
+      else if (command.ToLower() == "e")
+      {
+        Console.WriteLine("\n\n\tThanks for stopping by. We hope to see you again soon!\n\n");
+        _isOrdering = false;
+      }
+      else
+      {
+        Console.WriteLine("\n\tI didn't understand that command. Please try again.");
+        OrderUI();
+      }
     }
 
-    public static void OrderBread()
+    public static void BreadOrderUI()
     {
       ShowOptions();
       Console.WriteLine("\n\tHow many loaves of bread would you like today?\n\t: ");
