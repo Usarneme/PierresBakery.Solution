@@ -3,13 +3,13 @@ using PierresBakeryNamespace;
 
 namespace ProgramNamespace
 {
-  class Program
+  public class Program
   {
 
-    private PierresBakery _pierresBakeryInstance = new PierresBakery();
+    // private PierresBakery _pierresBakeryInstance = new PierresBakery();
     private static bool _isOrdering = true;
 
-    static void Main()
+    public static void Main()
     {
       Console.BackgroundColor = ConsoleColor.DarkBlue;
       Console.ForegroundColor = ConsoleColor.Black;
@@ -30,9 +30,14 @@ namespace ProgramNamespace
       Console.WriteLine("\tHot Pastry\t$2\t\t\tThree (3) Pastries For $5!\n\n");
     }
 
-    public static void OrderUI()
+    public static void ShowOptions()
     {
       Console.WriteLine("\tOptions: [M]enu. [I]tems Ordered. [O]rder Cost Total. [C]heckout. [E]xit.");
+    }
+
+    public static void OrderUI()
+    {
+      ShowOptions();
       Console.Write("\tPlease make a selection. Order [B]read. Order [P]astry\n\t: ");
       string order = Console.ReadLine();
       if (order.ToLower() == "m")
@@ -49,6 +54,13 @@ namespace ProgramNamespace
         Console.WriteLine("Thanks for stopping by. We hope to see you again soon!");
       }
       _isOrdering = false;
+    }
+
+    public static void OrderBread()
+    {
+      ShowOptions();
+      Console.WriteLine("\n\tHow many loaves of bread would you like today?\n\t: ");
+      int numberOfLoaves = Console.Read();
     }
   }
 }

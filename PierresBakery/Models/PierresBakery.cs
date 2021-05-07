@@ -2,35 +2,38 @@ using System.Collections.Generic;
 
 namespace PierresBakeryNamespace
 {
-  public class PierresBakery : IBakery
+  public static class PierresBakery
   {
 
-    private Dictionary<string, int> _currentOrder;
-    private int _currentOrderCost;
+    private static Dictionary<string, int> _currentOrder = new Dictionary<string, int>()
+      {
+        {"Breads", 0},
+        {"Pastries", 0}
+      };
+    private static int _currentOrderCost = 0;
 
-    public PierresBakery()
+    public static Dictionary<string, int> GetCurrentOrderItems()
     {
-      _currentOrderCost = 0;
+      return _currentOrder;
+    }
+
+    public static void ClearOrder()
+    {
       _currentOrder = new Dictionary<string, int>()
       {
         {"Breads", 0},
         {"Pastries", 0}
       };
+      _currentOrderCost = 0;
     }
 
-    public Dictionary<string, int> GetCurrentOrderItems()
-    {
-      return _currentOrder;
-    }
-
-
-    public int GetCurrentOrderCost()
+    public static int GetCurrentOrderCost()
     {
       UpdateCurrentOrderCost();
       return _currentOrderCost;
     }
 
-    public void UpdateCurrentOrderCost()
+    public static void UpdateCurrentOrderCost()
     {
       int numberOfBreads = _currentOrder["Breads"];
       int numberOfPastries = _currentOrder["Pastries"];
@@ -39,7 +42,7 @@ namespace PierresBakeryNamespace
       _currentOrderCost = costOfBreads + costOfPastries;
     }
 
-    public bool AddToCurrentOrder(string menuItem, int numberOfBreads)
+    public static bool AddToCurrentOrder(string menuItem, int numberOfBreads)
     {
       _currentOrder[menuItem] += numberOfBreads;
       return true;

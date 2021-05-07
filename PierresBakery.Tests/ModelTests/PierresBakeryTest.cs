@@ -1,13 +1,19 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PierresBakeryNamespace;
+using System;
 using System.Collections.Generic;
 namespace PierresBakeryTesting
 {
   [TestClass]
-  public class PierresBakeryTests
+  public class PierresBakeryTests : IDisposable
   {
     string PASTRY = "Pastries";
     string BREAD = "Breads";
+
+    public void Dispose()
+    {
+      PierresBakery.ClearOrder();
+    }
 
     [TestMethod]
     public void Bread_GetBasePriceOfOneLoaf_Five()
@@ -144,26 +150,17 @@ namespace PierresBakeryTesting
     }
 
     [TestMethod]
-    public void PierresBakery_CreateBakery_BakeryInstance()
-    {
-      PierresBakery myPierresBakery = new PierresBakery();
-      Assert.AreEqual(typeof(PierresBakery), myPierresBakery.GetType());
-    }
-
-    [TestMethod]
     public void PierresBakery_NewBakeryOrderCost_Zero()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
       int expectedOrderCost = 0;
-      int returnedOrderCost = myPierresBakery.GetCurrentOrderCost();
+      int returnedOrderCost = PierresBakery.GetCurrentOrderCost();
       Assert.AreEqual(expectedOrderCost, returnedOrderCost);
     }
 
     [TestMethod]
     public void PierresBakery_NewBakeryOrderItems_EmptyList()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
-      Dictionary<string, int> returnedOrderListItems = myPierresBakery.GetCurrentOrderItems();
+      Dictionary<string, int> returnedOrderListItems = PierresBakery.GetCurrentOrderItems();
       Dictionary<string, int> expectedOrderItems = new Dictionary<string, int>()
       {
         {"Breads", 0}, {"Pastries", 0}
@@ -174,95 +171,86 @@ namespace PierresBakeryTesting
     [TestMethod]
     public void PierresBakery_AddBreadToOrder_OneBreadInOrder()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
       int numberOfBreadsToAddToOrder = 1;
-      myPierresBakery.AddToCurrentOrder(BREAD, numberOfBreadsToAddToOrder);
+      PierresBakery.AddToCurrentOrder(BREAD, numberOfBreadsToAddToOrder);
       int expectedBreadNumber = 1;
-      int returnedBreadNumber = myPierresBakery.GetCurrentOrderItems()["Breads"];
+      int returnedBreadNumber = PierresBakery.GetCurrentOrderItems()["Breads"];
       Assert.AreEqual(expectedBreadNumber, returnedBreadNumber);
     }
 
     [TestMethod]
     public void PierresBakery_AddFiveBreadsToOrder_FiveBreadsInOrder()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
       int numberOfBreadsToAddToOrder = 5;
-      myPierresBakery.AddToCurrentOrder(BREAD, numberOfBreadsToAddToOrder);
+      PierresBakery.AddToCurrentOrder(BREAD, numberOfBreadsToAddToOrder);
       int expectedBreadNumber = 5;
-      int returnedBreadNumber = myPierresBakery.GetCurrentOrderItems()["Breads"];
+      int returnedBreadNumber = PierresBakery.GetCurrentOrderItems()["Breads"];
       Assert.AreEqual(expectedBreadNumber, returnedBreadNumber);
     }
 
     [TestMethod]
     public void PierresBakery_AddPastryToOrder_OnePastryInOrder()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
       int numberOfPastriesToAddToOrder = 1;
-      myPierresBakery.AddToCurrentOrder(PASTRY, numberOfPastriesToAddToOrder);
+      PierresBakery.AddToCurrentOrder(PASTRY, numberOfPastriesToAddToOrder);
       int expectedPastryNumber = 1;
-      int returnedPastryNumber = myPierresBakery.GetCurrentOrderItems()["Pastries"];
+      int returnedPastryNumber = PierresBakery.GetCurrentOrderItems()["Pastries"];
       Assert.AreEqual(expectedPastryNumber, returnedPastryNumber);
     }
 
     [TestMethod]
     public void PierresBakery_AddFivePastriesToOrder_FivePastriesInOrder()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
       int numberOfPastriesToAddToOrder = 5;
-      myPierresBakery.AddToCurrentOrder(PASTRY, numberOfPastriesToAddToOrder);
+      PierresBakery.AddToCurrentOrder(PASTRY, numberOfPastriesToAddToOrder);
       int expectedPastryNumber = 5;
-      int returnedPastryNumber = myPierresBakery.GetCurrentOrderItems()["Pastries"];
+      int returnedPastryNumber = PierresBakery.GetCurrentOrderItems()["Pastries"];
       Assert.AreEqual(expectedPastryNumber, returnedPastryNumber);
     }
 
     [TestMethod]
     public void PierresBakery_AddBreadToOrder_CostIsFiveDollars()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
-      myPierresBakery.AddToCurrentOrder(BREAD, 1);
+      PierresBakery.AddToCurrentOrder(BREAD, 1);
       int expectedCostOfOrder = 5;
-      int returnedCostOfOrder = myPierresBakery.GetCurrentOrderCost();
+      int returnedCostOfOrder = PierresBakery.GetCurrentOrderCost();
       Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
     }
 
     [TestMethod]
     public void PierresBakery_AddPastryToOrder_CostIsTwoDollars()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
-      myPierresBakery.AddToCurrentOrder(PASTRY, 1);
+      PierresBakery.AddToCurrentOrder(PASTRY, 1);
       int expectedCostOfOrder = 2;
-      int returnedCostOfOrder = myPierresBakery.GetCurrentOrderCost();
+      int returnedCostOfOrder = PierresBakery.GetCurrentOrderCost();
       Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
     }
 
     [TestMethod]
     public void PierresBakery_AddTenBreadToOrder_CostIsThirtyFiveDollars()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
-      myPierresBakery.AddToCurrentOrder(BREAD, 10);
+      PierresBakery.AddToCurrentOrder(BREAD, 10);
       int expectedCostOfOrder = 35;
-      int returnedCostOfOrder = myPierresBakery.GetCurrentOrderCost();
+      int returnedCostOfOrder = PierresBakery.GetCurrentOrderCost();
       Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
     }
 
     [TestMethod]
     public void PierresBakery_AddTenPastriesToOrder_CostIsSeventeenDollars()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
-      myPierresBakery.AddToCurrentOrder(PASTRY, 10);
+      PierresBakery.AddToCurrentOrder(PASTRY, 10);
       int expectedCostOfOrder = 17;
-      int returnedCostOfOrder = myPierresBakery.GetCurrentOrderCost();
+      int returnedCostOfOrder = PierresBakery.GetCurrentOrderCost();
       Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
     }
 
     [TestMethod]
     public void PierresBakery_AddTenPastriesAndTenBreadToOrder_CostIsFiftyTwoDollars()
     {
-      PierresBakery myPierresBakery = new PierresBakery();
-      myPierresBakery.AddToCurrentOrder(BREAD, 10);
-      myPierresBakery.AddToCurrentOrder(PASTRY, 10);
+      PierresBakery.AddToCurrentOrder(BREAD, 10);
+      PierresBakery.AddToCurrentOrder(PASTRY, 10);
       int expectedCostOfOrder = 52;
-      int returnedCostOfOrder = myPierresBakery.GetCurrentOrderCost();
+      int returnedCostOfOrder = PierresBakery.GetCurrentOrderCost();
       Assert.AreEqual(expectedCostOfOrder, returnedCostOfOrder);
     }
 
