@@ -9,6 +9,9 @@ public class Bread
 
   public static int GetPriceOfMultiple(int numberOfLoaves)
   {
-    return 0;
+    // buy 2, get 1 free. every third loaf is free
+    int numberOfFreeLoaves = numberOfLoaves / 3;
+    int numberOfPaidLoaves = numberOfLoaves - numberOfFreeLoaves;
+    return _singleLoafBreadPrice * numberOfPaidLoaves;
   }
 }
