@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using PierresBakeryNamespace;
 namespace PierresBakeryTesting
 {
   [TestClass]
@@ -104,5 +104,11 @@ namespace PierresBakeryTesting
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
+    [TestMethod]
+    public void PierresBakery_CreateBakery_BakeryInstance()
+    {
+      PierresBakery myPierresBakery = new PierresBakery();
+      Assert.AreEqual(typeof(PierresBakery), myPierresBakery.GetType());
+    }
   }
 }
