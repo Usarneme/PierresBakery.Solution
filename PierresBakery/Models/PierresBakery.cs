@@ -14,7 +14,7 @@ namespace PierresBakeryNamespace
 
     public Dictionary<string, int> GetCurrentOrderItems()
     {
-      return new Dictionary<string, int>();
+      return _currentOrder;
     }
 
     public int GetCurrentOrderCost()
