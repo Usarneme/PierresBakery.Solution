@@ -16,7 +16,7 @@ namespace PierresBakeryNamespace
 
     public int GetCurrentOrderCost()
     {
-      return -1;
+      return _currentOrderCost;
     }
 
     public bool AddToCurrentOrder(string item)
