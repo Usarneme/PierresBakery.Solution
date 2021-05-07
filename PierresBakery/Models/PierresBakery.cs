@@ -5,13 +5,16 @@ namespace PierresBakeryNamespace
   public class PierresBakery : IBakery
   {
 
-    private List<Bread> _currentBreadOrder = new List<Bread>();
-    private List<Pastry> _currentPastryOrder = new List<Pastry>();
+    private Dictionary<string, int> _currentOrder = new Dictionary<string, int>()
+    {
+      {"Breads", 0},
+      {"Pastries", 0}
+    };
     private int _currentOrderCost = 0;
 
-    public List<string> GetCurrentOrderItems()
+    public Dictionary<string, int> GetCurrentOrderItems()
     {
-      return new List<string>();
+      return new Dictionary<string, int>();
     }
 
     public int GetCurrentOrderCost()

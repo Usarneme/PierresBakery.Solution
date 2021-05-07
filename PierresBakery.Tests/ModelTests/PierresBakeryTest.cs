@@ -125,8 +125,8 @@ namespace PierresBakeryTesting
     public void PierresBakery_NewBakeryOrderItems_EmptyList()
     {
       PierresBakery myPierresBakery = new PierresBakery();
-      List<string> returnedOrderListItems = myPierresBakery.GetCurrentOrderItems();
-      List<string> expectedOrderItems = new List<string>();
+      Dictionary<string, int> returnedOrderListItems = myPierresBakery.GetCurrentOrderItems();
+      Dictionary<string, int> expectedOrderItems = new Dictionary<string, int>();
       CollectionAssert.AreEqual(expectedOrderItems, returnedOrderListItems);
     }
   }
