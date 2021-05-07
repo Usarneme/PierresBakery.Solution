@@ -13,14 +13,13 @@ This project is a console application for Pierre's Bakery. It allows you to orde
 1. C#
 2. .NET5
 3. MSTest
-4. Bash script (for project setup)
 ---
 ### Project Build/Run Instructions
 1. Clone this repository via `git clone https://github.com/Usarneme/PierresBakery.Solution`
-2. Enter the newly created directory via `cd PierresBakery.Solution`
-3. Enter the project directory `cd PierresBakery` and install requirements via `dotnet restore`
-3a. (Optional) If you want to run the Test Suite, enter the test directory `cd PierresBakery.Tests` and run `dotnet restore`
+2. Enter the newly created directory via `cd PierresBakery.Solution/`
+3. Enter the project directory `cd PierresBakery/` and install requirements via `dotnet restore`
 4. From within the PierresBakery directory, to run the application first run `dotnet build` then `dotnet run`
+5. (Optional) If you want to run the Test Suite, enter the test directory `cd PierresBakery.Tests/` and run `dotnet restore` followed by `dotnet test`
 ---
 
 ### Requirements
