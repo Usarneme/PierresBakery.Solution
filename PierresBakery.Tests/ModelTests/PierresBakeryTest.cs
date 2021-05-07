@@ -1,11 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PierresBakeryNamespace;
 
 namespace PierresBakeryTesting
 {
   [TestClass]
   public class PierresBakeryTests
   {
+
     [TestMethod]
     public void Bread_GetPrice_Five()
     {
@@ -59,6 +59,16 @@ namespace PierresBakeryTesting
       int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
+
+    [TestMethod]
+    public void Pastry_GetPrice_Two()
+    {
+      // Arrange, Act, Assert
+      int expectedCost = 2;
+      int returnedCost = Pastry.GetPrice();
+      Assert.AreEqual(expectedCost, returnedCost);
+    }
+
 
   }
 }
