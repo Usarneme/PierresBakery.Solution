@@ -30,6 +30,7 @@ namespace PierresBakeryNamespace
 
     public bool AddPastryToCurrentOrder(int numberOfPastries)
     {
+      _currentOrder["Pastries"] += numberOfPastries;
       return true;
     }
   }
