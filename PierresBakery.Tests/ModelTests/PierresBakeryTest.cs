@@ -143,5 +143,16 @@ namespace PierresBakeryTesting
       int returnedBreadNumber = myPierresBakery.GetCurrentOrderItems()["Breads"];
       Assert.AreEqual(expectedBreadNumber, returnedBreadNumber);
     }
+
+    [TestMethod]
+    public void PierresBakery_AddFiveBreadsToOrder_FiveBreadsInOrder()
+    {
+      PierresBakery myPierresBakery = new PierresBakery();
+      int numberOfBreadsToAddToOrder = 5;
+      myPierresBakery.AddBreadToCurrentOrder(numberOfBreadsToAddToOrder);
+      int expectedBreadNumber = 5;
+      int returnedBreadNumber = myPierresBakery.GetCurrentOrderItems()["Breads"];
+      Assert.AreEqual(expectedBreadNumber, returnedBreadNumber);
+    }
   }
 }
