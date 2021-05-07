@@ -6,7 +6,7 @@ public class Pastry
     get { return _singlePastryPrice; }
   }
 
-  public static int GetPriceOfMultiple(int numberOfPastries)
+  public static int CalculatePrice(int numberOfPastries)
   {
     // price is 1 for $2, deal price is 3 for $5
     int numberAtDealPrice = numberOfPastries / 3;

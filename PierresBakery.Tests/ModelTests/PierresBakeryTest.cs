@@ -21,7 +21,7 @@ namespace PierresBakeryTesting
     {
       int numberOfLoaves = 0;
       int expectedCost = 0;
-      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      int returnedCost = Bread.CalculatePrice(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -30,7 +30,7 @@ namespace PierresBakeryTesting
     {
       int numberOfLoaves = 1;
       int expectedCost = 5;
-      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      int returnedCost = Bread.CalculatePrice(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -39,7 +39,7 @@ namespace PierresBakeryTesting
     {
       int numberOfLoaves = 3;
       int expectedCost = 10;
-      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      int returnedCost = Bread.CalculatePrice(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -48,7 +48,7 @@ namespace PierresBakeryTesting
     {
       int numberOfLoaves = 9;
       int expectedCost = 30;
-      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      int returnedCost = Bread.CalculatePrice(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -57,7 +57,7 @@ namespace PierresBakeryTesting
     {
       int numberOfLoaves = 10;
       int expectedCost = 35;
-      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      int returnedCost = Bread.CalculatePrice(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -66,7 +66,7 @@ namespace PierresBakeryTesting
     {
       int numberOfLoaves = 11;
       int expectedCost = 40;
-      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      int returnedCost = Bread.CalculatePrice(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -75,7 +75,7 @@ namespace PierresBakeryTesting
     {
       int numberOfLoaves = 12;
       int expectedCost = 40;
-      int returnedCost = Bread.GetPriceOfMultiple(numberOfLoaves);
+      int returnedCost = Bread.CalculatePrice(numberOfLoaves);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -92,7 +92,7 @@ namespace PierresBakeryTesting
     {
       int numberOfPastries = 0;
       int expectedCost = 0;
-      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      int returnedCost = Pastry.CalculatePrice(numberOfPastries);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -101,7 +101,7 @@ namespace PierresBakeryTesting
     {
       int numberOfPastries = 1;
       int expectedCost = 2;
-      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      int returnedCost = Pastry.CalculatePrice(numberOfPastries);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -110,7 +110,7 @@ namespace PierresBakeryTesting
     {
       int numberOfPastries = 2;
       int expectedCost = 4;
-      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      int returnedCost = Pastry.CalculatePrice(numberOfPastries);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -119,7 +119,7 @@ namespace PierresBakeryTesting
     {
       int numberOfPastries = 3;
       int expectedCost = 5;
-      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      int returnedCost = Pastry.CalculatePrice(numberOfPastries);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -128,7 +128,7 @@ namespace PierresBakeryTesting
     {
       int numberOfPastries = 4;
       int expectedCost = 7;
-      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      int returnedCost = Pastry.CalculatePrice(numberOfPastries);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 
@@ -137,7 +137,7 @@ namespace PierresBakeryTesting
     {
       int numberOfPastries = 10;
       int expectedCost = 17;
-      int returnedCost = Pastry.GetPriceOfMultiple(numberOfPastries);
+      int returnedCost = Pastry.CalculatePrice(numberOfPastries);
       Assert.AreEqual(expectedCost, returnedCost);
     }
 

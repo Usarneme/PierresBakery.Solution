@@ -21,8 +21,8 @@ namespace PierresBakeryNamespace
     {
       int numberOfBreads = _currentOrder["Breads"];
       int numberOfPastries = _currentOrder["Pastries"];
-      int costOfBreads = Bread.GetPriceOfMultiple(numberOfBreads);
-      int costOfPastries = Pastry.GetPriceOfMultiple(numberOfPastries);
+      int costOfBreads = Bread.CalculatePrice(numberOfBreads);
+      int costOfPastries = Pastry.CalculatePrice(numberOfPastries);
       _currentOrderCost = costOfBreads + costOfPastries;
     }
 
