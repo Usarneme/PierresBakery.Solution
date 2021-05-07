@@ -169,7 +169,7 @@ namespace ProgramNamespace
         int orderCost = PierresBakery.GetCurrentOrderCost();
         Console.WriteLine("\n\tThanks for visiting us today! ");
         Console.WriteLine("\tYour total comes to ${0}.00.", orderCost);
-        Console.WriteLine("\n\tPlease enter your credit card number and we'll process your payment.\n\n ;)");
+        Console.WriteLine("\tPlease enter your credit card number and we'll process your payment.\n\n ;)");
       }
       else
       {
