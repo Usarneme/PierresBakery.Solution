@@ -126,8 +126,21 @@ namespace PierresBakeryTesting
     {
       PierresBakery myPierresBakery = new PierresBakery();
       Dictionary<string, int> returnedOrderListItems = myPierresBakery.GetCurrentOrderItems();
-      Dictionary<string, int> expectedOrderItems = new Dictionary<string, int>();
+      Dictionary<string, int> expectedOrderItems = new Dictionary<string, int>()
+      {
+        {"Breads", 0}, {"Pastries", 0}
+      };
       CollectionAssert.AreEqual(expectedOrderItems, returnedOrderListItems);
+    }
+
+    [TestMethod]
+    public void PierresBakery_AddBreadToOrder_OneBreadInOrder()
+    {
+      PierresBakery myPierresBakery = new PierresBakery();
+      myPierresBakery.AddBreadToCurrentOrder(new Bread());
+      int expectedBreadNumber = 1;
+      int returnedBreadNumber = myPierresBakery.GetCurrentOrderItems()["Breads"];
+      Assert.AreEqual(expectedBreadNumber, returnedBreadNumber);
     }
   }
 }
