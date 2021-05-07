@@ -6,15 +6,15 @@ namespace ProgramNamespace
   class Program
   {
 
-    PierresBakery _pierresBakeryInstance = new PierresBakery();
+    private PierresBakery _pierresBakeryInstance = new PierresBakery();
     private static bool _isOrdering = true;
 
     static void Main()
     {
-      Console.BackgroundColor = ConsoleColor.Magenta;
-      Console.ForegroundColor = ConsoleColor.DarkYellow;
+      Console.BackgroundColor = ConsoleColor.DarkBlue;
+      Console.ForegroundColor = ConsoleColor.Black;
       Console.WriteLine("\t\n\n\tWelcome to Pierre's Bakery!");
-      Console.WriteLine("\t\"For all your fresh dough and pastry needs. Radiation free since 1906!\" -Pierre Curie, Proprietor\n\n");
+      Console.WriteLine("\t\"For all your fresh bread and pastry needs. Radiation free since 1906!\" -Pierre Curie, Proprietor\n\n");
       ShowMenu();
       while (_isOrdering == true)
       {
@@ -33,9 +33,17 @@ namespace ProgramNamespace
     public static void OrderUI()
     {
       Console.WriteLine("\tOptions: [M]enu. [I]tems Ordered. [O]rder Cost Total.");
-      Console.Write("Please make a selection. Order [B]read or [P]astry\n\t: ");
+      Console.Write("\tPlease make a selection. Order [B]read or [P]astry\n\t: ");
       string order = Console.ReadLine();
-      // response to command...TODO
+      if (order.ToLower() == "m")
+      {
+        ShowMenu();
+        OrderUI();
+      }
+      else if (order.ToLower() == "o")
+      {
+        // int orderCost = _pierresBakeryInstance.GetCurrentOrderCost();
+      }
       _isOrdering = false;
     }
   }

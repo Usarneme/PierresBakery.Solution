@@ -5,16 +5,22 @@ namespace PierresBakeryNamespace
   public class PierresBakery : IBakery
   {
 
-    private Dictionary<string, int> _currentOrder = new Dictionary<string, int>()
-    {
-      {"Breads", 0},
-      {"Pastries", 0}
-    };
-    private int _currentOrderCost = 0;
+    private Dictionary<string, int> _currentOrder;
+    private int _currentOrderCost;
 
     public Dictionary<string, int> GetCurrentOrderItems()
     {
       return _currentOrder;
+    }
+
+    public PierresBakery()
+    {
+      _currentOrderCost = 0;
+      _currentOrder = new Dictionary<string, int>()
+      {
+        {"Breads", 0},
+        {"Pastries", 0}
+      };
     }
 
     public void UpdateCurrentOrderCost()
