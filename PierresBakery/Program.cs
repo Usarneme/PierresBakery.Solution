@@ -39,12 +39,12 @@ namespace ProgramNamespace
       ShowOptions();
       Console.Write("\tPlease make a selection.\n\t: ");
       string command = Console.ReadLine();
-      if (command.ToLower() == "m")
+      if (command.ToLower() == "m" || command.ToLower() == "menu")
       {
         ShowMenu();
         OrderUI();
       }
-      else if (command.ToLower() == "i")
+      else if (command.ToLower() == "i" || command.ToLower() == "items" || command.ToLower() == "order")
       {
         Dictionary<string, int> itemsOrdered = PierresBakery.GetCurrentOrderItems();
         int numberOfBreads = itemsOrdered["Breads"];
@@ -76,19 +76,19 @@ namespace ProgramNamespace
         }
         OrderUI();
       }
-      else if (command.ToLower() == "o")
+      else if (command.ToLower() == "o" || command.ToLower() == "cost" || command.ToLower() == "price")
       {
         int orderCost = PierresBakery.GetCurrentOrderCost();
         Console.WriteLine("\n\tYour total comes to ${0}.00.\n", orderCost);
         OrderUI();
       }
-      else if (command.ToLower() == "b")
+      else if (command.ToLower() == "b" || command.ToLower() == "bread" || command.ToLower() == "breads")
       {
-        BreadOrderUI();
+        OrderUI("Breads");
       }
-      else if (command.ToLower() == "p")
+      else if (command.ToLower() == "p" || command.ToLower() == "pastry" || command.ToLower() == "pastries")
       {
-        PastryOrderUI();
+        OrderUI("Pastries");
       }
       else if (command.ToLower() == "c")
       {
@@ -107,76 +107,57 @@ namespace ProgramNamespace
       }
     }
 
-    public static void BreadOrderUI()
+    public static void OrderUI(string itemName)
     {
-      Console.Write("\n\tHow many loaves of bread would you like today?\n\t: ");
-      string loafString = Console.ReadLine();
-      if (string.IsNullOrEmpty(loafString))
+      string singleItemName;
+      string pluralItemName;
+      if (itemName == "Breads")
       {
-        Console.WriteLine("\tYou forgot to input a number. If you don't want any more loaves enter 0.");
-        BreadOrderUI();
-      }
-      int numberOfLoaves;
-      bool parseSuccess = int.TryParse(loafString, out numberOfLoaves);
-      if (!parseSuccess)
-      {
-        Console.WriteLine("\tThat is not a valid number. Please try again.");
-        BreadOrderUI();
-      }
-      if (numberOfLoaves == 0)
-      {
-        Console.WriteLine("\n\tOk, no bread. Returning to main menu.\n");
-        OrderUI();
+        singleItemName = "loaf bread";
+        pluralItemName = "loaves of bread";
       }
       else
       {
-        PierresBakery.AddToCurrentOrder("Breads", numberOfLoaves);
-        if (numberOfLoaves == 1)
-        {
-          Console.WriteLine("\n\tOne loaf of bread added to your order. Returning to the main menu.\n");
-          OrderUI();
-        }
-        else
-        {
-          Console.WriteLine("\n\t{0} loaves of bread added to your order. Returning to the main menu.\n", numberOfLoaves);
-          OrderUI();
-        }
+        singleItemName = "delicious pastry";
+        pluralItemName = "delicious pastries";
       }
-    }
-
-    public static void PastryOrderUI()
-    {
-      Console.Write("\n\tHow many delicious pastries would you like today?\n\t: ");
-      string pastriesString = Console.ReadLine();
-      if (string.IsNullOrEmpty(pastriesString))
+      Console.Write("\n\tHow many {0} would you like today?\n\t: ", pluralItemName);
+      string itemInputString = Console.ReadLine();
+      if (string.IsNullOrEmpty(itemInputString))
       {
-        Console.WriteLine("\tYou forgot to input a number. If you don't want any more delicious pastries enter 0.");
-        PastryOrderUI();
-      }
-      int numberOfPastries;
-      bool parseSuccess = int.TryParse(pastriesString, out numberOfPastries);
-      if (!parseSuccess)
-      {
-        Console.WriteLine("\tThat is not a valid number. Please try again.");
-        PastryOrderUI();
-      }
-      if (numberOfPastries == 0)
-      {
-        Console.WriteLine("\n\tOk, no delicious pastries. Returning to main menu.\n");
-        OrderUI();
+        Console.WriteLine("\tYou forgot to input a number. If you don't want any more {0} enter 0.", pluralItemName);
+        OrderUI(itemName);
       }
       else
       {
-        PierresBakery.AddToCurrentOrder("Pastries", numberOfPastries);
-        if (numberOfPastries == 1)
+        int numberOfItems;
+        bool parseSuccess = int.TryParse(itemInputString, out numberOfItems);
+        if (!parseSuccess)
         {
-          Console.WriteLine("\n\tOne delicious pastry added to your order. Returning to the main menu.\n");
-          OrderUI();
+          Console.WriteLine("\tThat is not a valid number. Please try again.");
+          OrderUI(itemName);
         }
         else
         {
-          Console.WriteLine("\n\t{0} delicious pastries added to your order. Returning to the main menu.\n", numberOfPastries);
-          OrderUI();
+          if (numberOfItems == 0)
+          {
+            Console.WriteLine("\n\tOk, no {0}. Returning to main menu.\n", pluralItemName);
+            OrderUI();
+          }
+          else
+          {
+            PierresBakery.AddToCurrentOrder(itemName, numberOfItems);
+            if (numberOfItems == 1)
+            {
+              Console.WriteLine("\n\tOne {0} added to your order. Returning to the main menu.\n", singleItemName);
+              OrderUI();
+            }
+            else
+            {
+              Console.WriteLine("\n\t{0} {1} added to your order. Returning to the main menu.\n", numberOfItems, pluralItemName);
+              OrderUI();
+            }
+          }
         }
       }
     }
