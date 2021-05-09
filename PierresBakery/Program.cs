@@ -111,7 +111,18 @@ namespace ProgramNamespace
     {
       Console.Write("\n\tHow many loaves of bread would you like today?\n\t: ");
       string loafString = Console.ReadLine();
-      int numberOfLoaves = int.Parse(loafString);
+      if (string.IsNullOrEmpty(loafString))
+      {
+        Console.WriteLine("\tYou forgot to input a number. If you don't want any more loaves enter 0.");
+        BreadOrderUI();
+      }
+      int numberOfLoaves;
+      bool parseSuccess = int.TryParse(loafString, out numberOfLoaves);
+      if (!parseSuccess)
+      {
+        Console.WriteLine("\tThat is not a valid number. Please try again.");
+        BreadOrderUI();
+      }
       if (numberOfLoaves == 0)
       {
         Console.WriteLine("\n\tOk, no bread. Returning to main menu.\n");
@@ -137,7 +148,18 @@ namespace ProgramNamespace
     {
       Console.Write("\n\tHow many delicious pastries would you like today?\n\t: ");
       string pastriesString = Console.ReadLine();
-      int numberOfPastries = int.Parse(pastriesString);
+      if (string.IsNullOrEmpty(pastriesString))
+      {
+        Console.WriteLine("\tYou forgot to input a number. If you don't want any more delicious pastries enter 0.");
+        PastryOrderUI();
+      }
+      int numberOfPastries;
+      bool parseSuccess = int.TryParse(pastriesString, out numberOfPastries);
+      if (!parseSuccess)
+      {
+        Console.WriteLine("\tThat is not a valid number. Please try again.");
+        PastryOrderUI();
+      }
       if (numberOfPastries == 0)
       {
         Console.WriteLine("\n\tOk, no delicious pastries. Returning to main menu.\n");
